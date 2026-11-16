@@ -1,0 +1,23 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Large MediaPipe model files (downloaded automatically by detector.py on first run)
+server/models/
+*.task
+
+# Screenshots & user snapshots
+server/snapshots/
+*.jpg
+*.png
+
+# Node / frontend modules (if installed)
+node_modules/
+.DS_Store
+
+# Environments
+.env
+.venv/
+env/
+venv/

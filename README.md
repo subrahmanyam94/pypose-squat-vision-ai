@@ -2,9 +2,8 @@
 
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/)
 [![MediaPipe](https://img.shields.io/badge/MediaPipe-PoseLandmarker-brightgreen.svg)](https://developers.google.com/mediapipe)
-[![Vercel Ready](https://img.shields.io/badge/Vercel-Frontend-black.svg?logo=vercel)](https://vercel.com/)
-[![Render Ready](https://img.shields.io/badge/Render-Backend-46E3B7.svg?logo=render)](https://render.com/)
-[![Test Suite](https://img.shields.io/badge/Tests-14%20Passing-success.svg)](test_logic.py)
+[![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-red.svg)](https://opencv.org/)
+[![Test Suite](https://img.shields.io/badge/Tests-15%20Passing-success.svg)](test_logic.py)
 
 A computer vision web application and desktop AI squat analysis tool. Uses Google MediaPipe BlazePose and OpenCV to track human kinematics in real-time, compute continuous 0–100 form accuracy, verify chest uprightness, track sets with 2-minute rest intervals, and analyze barbell velocity and sagittal drift.
 
@@ -57,42 +56,37 @@ Requires all 5 biomechanical criteria of a genuine squat:
 
 ```
 files/
-├── client/                      # 🌐 Vercel-ready Frontend
+├── client/                      # 🎨 Local Frontend Dashboard Assets
 │   ├── index.html               # Stitch / PyPose Dark Mode Dashboard
 │   ├── app.js                   # Client JS (Telemetry polling, SVG waveforms, bar charts)
-│   ├── styles.css               # Dark theme, neon accents, sleek scrollbars
-│   ├── vercel.json              # Vercel static routing configuration
-│   └── package.json             # Frontend package descriptor
+│   └── styles.css               # Dark theme, neon accents, sleek scrollbars
 │
-├── server/                      # ⚡ Render / Cloud Python Backend
-│   ├── app.py                   # Production Render entrypoint (reads $PORT, CORS enabled)
-│   ├── web_app.py               # Threaded HTTP server & REST endpoints
+├── server/                      # ⚙️ Python Backend Engine
+│   ├── web_app.py               # Built-in threaded HTTP server & REST endpoints
 │   ├── exercises.py             # Squat state machine, 2m rest, sets, depth & chest
 │   ├── detector.py              # MediaPipe PoseLandmarker wrapper
 │   ├── geometry.py              # Joint angle & torso lean trigonometry
 │   ├── landmarks.py             # 33 pose landmark indices & wireframe connections
 │   ├── ui_overlay.py            # OpenCV HUD overlay renderer
-│   ├── test_logic.py            # Comprehensive 14-test test suite
-│   ├── requirements.txt         # Headless dependencies for Linux cloud containers
-│   ├── render.yaml              # Render 1-click Blueprint definition
-│   └── Dockerfile               # Container definition for Docker deployments
+│   ├── test_logic.py            # Comprehensive 15-test unit suite
+│   └── requirements.txt         # Backend Python dependencies
 │
-├── main.py                      # 💻 Unified Local Launcher (Web + Native OpenCV)
+├── main.py                      # 💻 Unified Local App Launcher (Web + Native OpenCV)
 ├── test_logic.py                # Root test suite runner
-├── DEPLOY.md                    # 🚀 Complete Deployment Guide for Vercel & Render
+├── requirements.txt             # Project root dependencies
 └── README.md                    # Project documentation
 ```
 
 ---
 
-## ⚡ Quick Start (Local Run)
+## ⚡ Quick Start (Local Machine)
 
 ### Requirements
 - Python 3.10+
 - Webcam or recorded video file
 
 ```bash
-# Install dependencies
+# 1. Install dependencies
 pip install -r requirements.txt
 ```
 
@@ -112,25 +106,6 @@ Runs directly in an OpenCV window with high-performance overlay graphics. Press 
 ```bash
 python main.py --video my_squats.mp4
 ```
-
----
-
-## 🚀 Cloud Deployment (Vercel + Render)
-
-For complete instructions with screenshots and config tables, see [DEPLOY.md](DEPLOY.md).
-
-1. **Deploy Server to Render**:
-   - Push repository to GitHub.
-   - On Render, create a new **Web Service**, set Root Directory to `server`.
-   - Build Command: `pip install -r requirements.txt`
-   - Start Command: `python app.py`
-2. **Deploy Client to Vercel**:
-   - On Vercel, import repository.
-   - Set Root Directory to `client`.
-   - Click **Deploy**.
-3. **Connect**:
-   - Enter your Render backend URL into the `SERVER:` input field in the top header.
-   - Live stream and telemetry sync across the edge automatically with pre-configured CORS!
 
 ---
 
