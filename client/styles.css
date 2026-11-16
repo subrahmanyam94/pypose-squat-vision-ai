@@ -1,0 +1,38 @@
+html {
+  overflow-y: auto !important;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  overflow-y: auto !important;
+  background-color: #0f131c;
+  min-height: 100vh;
+}
+
+/* Sleek Dark Mode Scrollbar with Neon Hover Accent */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0e17;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262a34;
+  border-radius: 5px;
+  border: 2px solid #0a0e17;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #39ff14;
+}
+
+.waveform-path {
+  transition: stroke-dashoffset 0.1s linear;
+}
+
